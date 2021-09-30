@@ -1,7 +1,11 @@
 
+
+@extends('layouts.frontend')
+
+@section('content')
 <div class="container">
 
-    <h1>Article <small>about: <a href="./?view=object">X</a> object</small></h1>
+    <h1>Article <small>about: <a href="{{ route('object') }}">X</a> object</small></h1>
     <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
 
 
@@ -13,7 +17,7 @@
 
             <ul class="list-inline">
                 <?php for ($i = 1; $i <= 10; $i++): ?>
-                    <li><a href="./?view=person"><img title="John Doe" class="media-object img-responsive" width="50" height="50" src="http://lorempixel.com/50/50/people/?x=<?= mt_rand(1, 9999999) ?>" alt="..."> </a></li>
+                    <li><a href="{{ route('person') }}"><img title="John Doe" class="media-object img-responsive" width="50" height="50" src="http://lorempixel.com/50/50/people/?x=<?= mt_rand(1, 9999999) ?>" alt="..."> </a></li>
 
                 <?php endfor; ?>
             </ul>
@@ -27,7 +31,7 @@
     <?php for ($j = 1; $j <= 4; $j++): ?>
         <div class="media">
             <div class="media-left media-top">
-                <a href="./?view=person">
+                <a href="{{ route('person') }}">
                     <img class="media-object" width="50" height="50" src="http://lorempixel.com/50/50/people/?x=<?= mt_rand(1, 9999999) ?>" alt="...">
                 </a>
             </div>
@@ -72,4 +76,4 @@
 
 
 </div>
-
+@endsection

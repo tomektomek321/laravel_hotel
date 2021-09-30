@@ -1,4 +1,8 @@
 
+
+@extends('layouts.frontend')
+
+@section('content')
 <div class="container-fluid places">
 
     <h1 class="text-center">Available rooms</h1>
@@ -16,7 +20,7 @@
                         <div class="caption">
                             <h3>Lorem ipsum  <small class="orange bolded">250$</small> </h3>
                             <p>Lorem impsum dolor sit amet. Lorem impsum dolor sit amet.</p>
-                            <p><a href="./?view=room" class="btn btn-primary" role="button">Details</a><a href="./?view=room#reservation" class="btn btn-success pull-right" role="button">Reservation</a></p>
+                            <p><a href="{{ route('room') }}" class="btn btn-primary" role="button">Details</a><a href="{{ route('room') }}#reservation" class="btn btn-success pull-right" role="button">Reservation</a></p>
                         </div>
                     </div>
                 </div>
@@ -29,3 +33,6 @@
     <?php endfor; ?>
 
 </div>
+@endsection
+
+

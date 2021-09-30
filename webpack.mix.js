@@ -11,5 +11,12 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+mix.scripts(['resources/js/app.js'], 'public/js/app.js')
+   .babel(['resources/js/admin.js'], 'public/js/admin.js') /* Lecture 4 */
+   .sass('resources/sass/app.scss', 'public/css')
+   .options({
+      processCssUrls: false /* Lecture 4 */
+   });
+
+// mix.js('resources/js/app.js', 'public/js')
+//    .sass('resources/sass/app.scss', 'public/css');

@@ -1,4 +1,8 @@
 
+
+@extends('layouts.backend')
+
+@section('content')
 <h2>Adding a new room to the object / editing</h2>
 <form method="POST" enctype="multipart/form-data" class="form-horizontal">
     <fieldset>
@@ -73,3 +77,6 @@
 
     </fieldset>
 </form>
+@endsection
+
+
