@@ -20,7 +20,7 @@ Route::get(trans('routes.person'),'FrontendController@person')->name('person');
 
 
 
-Route::group(['prefix'=>'admin'],function(){
+Route::group(['prefix'=>'admin'], function(){
 
   Route::get('/','BackendController@index')->name('adminHome');
   Route::get(trans('routes.myobjects'),'BackendController@myobjects')->name('myObjects');
