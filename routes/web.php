@@ -13,7 +13,7 @@
 
 Route::get('/','FrontendController@index')->name('home');
 Route::get(trans('routes.object').'/{id}','FrontendController@object')->name('object');
-Route::get(trans('routes.roomsearch'),'FrontendController@roomsearch')->name('roomSearch');
+Route::post(trans('routes.roomsearch'),'FrontendController@roomsearch')->name('roomSearch');
 Route::get(trans('routes.room'),'FrontendController@room')->name('room');
 Route::get(trans('routes.article'),'FrontendController@article')->name('article');
 Route::get(trans('routes.person'),'FrontendController@person')->name('person');
