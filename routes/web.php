@@ -18,7 +18,7 @@ Route::get(trans('routes.room'),'FrontendController@room')->name('room');
 Route::get(trans('routes.article'),'FrontendController@article')->name('article');
 Route::get(trans('routes.person'),'FrontendController@person')->name('person');
 
-
+Route::get('/searchCities', 'FrontendController@searchCities');
 
 Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function(){
 

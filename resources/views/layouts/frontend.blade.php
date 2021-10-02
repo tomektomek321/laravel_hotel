@@ -19,6 +19,10 @@
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+        <script>
+            var base_url = '{{ url('/') }}';
+        </script>
     </head>
     <body>
 
