@@ -5,6 +5,12 @@
 @section('content')
 <div class="container-fluid places">
 
+    @if (session('norooms'))
+        <p class="text-center red bolded">
+            {{ session('norooms') }}
+        </p>
+    @endif
+
     <!-- <p class="text-center red bolded">No offers were found that met the criteria</p> -->
     <h1 class="text-center">Interesting places</h1>
 
