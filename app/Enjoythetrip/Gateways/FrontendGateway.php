@@ -27,6 +27,24 @@ class FrontendGateway {
         return $results;
     }
 
+    public function getSearchResults($request)
+    {
+        if( $request->input('city') != null)
+        {
+            $result = $this->fR->getSearchResults($request->input('city'));
+
+            if($result)
+            {
+                $request->flash();
+
+                return $result;
+            }
+
+        }
+
+        return false;
+    }
+
 }
 
 
