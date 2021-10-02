@@ -3,8 +3,9 @@
 namespace App\Enjoythetrip\Repositories;
 
 use App\TouristObject;
+use App\Enjoythetrip\Interfaces\FrontendRepositoryInterface;
 
-class FrontendRepository  {
+class FrontendRepository implements FrontendRepositoryInterface {
 
     public function getObjectsForMainPage()
     {
