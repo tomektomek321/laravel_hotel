@@ -29,7 +29,7 @@ class FrontendController extends Controller
     {
         $object = $this->fR->getObject($id);
         //dd($object);
-        return view('frontend.object');
+        return view('frontend.object', ['object'=>$object]);
     }
 
     public function person()
