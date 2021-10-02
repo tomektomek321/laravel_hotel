@@ -24,7 +24,7 @@ class FrontendRepository implements FrontendRepositoryInterface {
 
     public function getSearchResults(string $city)
     {
-        return City::where('name',$city)->get() ?? false;
+        return City::with(['rooms.reservations', 'rooms.photos', 'rooms.object.photos'])->where('name',$city)->first() ?? false;
     }
 
 }
