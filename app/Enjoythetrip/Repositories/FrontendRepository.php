@@ -2,8 +2,8 @@
 
 namespace App\Enjoythetrip\Repositories;
 
-use App\TouristObject;
 use App\Enjoythetrip\Interfaces\FrontendRepositoryInterface;
+use App\{TouristObject,City,Room,Reservation,Article,User,Comment};
 
 class FrontendRepository implements FrontendRepositoryInterface {
 
@@ -39,6 +39,21 @@ class FrontendRepository implements FrontendRepositoryInterface {
         $likeable = $type::find($likeable_id);
 
         return $likeable->users()->detach($request->user()->id);
+    }
+
+    public function addComment($commentable_id, $type, $request)
+    {
+        $commentable = $type::find($commentable_id);
+
+        $comment = new Comment;
+
+        $comment->content = $request->input('content');
+
+        $comment->rating = $type == 'App\TouristObject' ? $request->input('rating') : 0;
+
+        $comment->user_id = $request->user()->id;
+
+        return $commentable->comments()->save($comment);
     }
 
 }

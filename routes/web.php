@@ -24,6 +24,8 @@ Route::get('/ajaxGetRoomReservations/{id}', 'FrontendController@ajaxGetRoomReser
 Route::get('/like/{likeable_id}/{type}', 'FrontendController@like')->name('like');
 Route::get('/unlike/{likeable_id}/{type}', 'FrontendController@unlike')->name('unlike');
 
+Route::post('/addComment/{commentable_id}/{type}', 'FrontendController@addComment')->name('addComment');
+
 Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function(){
 
   Route::get('/','BackendController@index')->name('adminHome');
