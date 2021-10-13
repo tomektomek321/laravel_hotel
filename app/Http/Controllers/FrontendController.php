@@ -88,4 +88,31 @@ class FrontendController extends Controller
         return redirect()->back();
     }
 
+    public function makeReservation($room_id, $city_id, Request $request)
+    {
+
+        $avaiable = $this->fG->checkAvaiableReservations($room_id, $request);
+
+        if(!$avaiable)
+        {
+            if (!$request->ajax())
+            {
+                $request->session()->flash('reservationMsg', __('There are no vacancies'));
+                return redirect()->route('room',['id'=>$room_id,'#reservation']);
+            }
+
+            return response()->json(['reservation'=>false]);
+        }
+        else
+        {
+            $reservation = $this->fG->makeReservation($room_id, $city_id, $request);
+
+            if (!$request->ajax())
+            return redirect()->route('adminHome');
+            else
+            return response()->json(['reservation'=>$reservation]);
+        }
+
+    }
+
 }
