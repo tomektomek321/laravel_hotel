@@ -154,6 +154,19 @@
         @endforeach
     </section>
 
-    <a href="#" class="btn btn-primary btn-xs top-buffer">Like this object</a>
+    @auth
+
+        @if( $object->isLiked() )
+       <a href="{{ route('unlike',['id'=>$object->id,'type'=>'App\TouristObject']) }}" class="btn btn-primary btn-xs top-buffer">Unlike this object</a>
+        @else
+       <a href="{{ route('like',['id'=>$object->id,'type'=>'App\TouristObject']) }}" class="btn btn-primary btn-xs top-buffer">Like this object</a>
+        @endif
+
+    @else
+
+    <p><a href="{{ route('login') }}">Login to like this object</a></p>
+
+    @endauth
+
 </div>
 @endsection

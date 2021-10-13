@@ -27,6 +27,20 @@ class FrontendRepository implements FrontendRepositoryInterface {
         return City::with(['rooms.reservations', 'rooms.photos', 'rooms.object.photos'])->where('name',$city)->first() ?? false;
     }
 
+    public function like($likeable_id, $type, $request)
+    {
+        $likeable = $type::find($likeable_id);
+
+        return $likeable->users()->attach($request->user()->id);
+    }
+
+    public function unlike($likeable_id, $type, $request)
+    {
+        $likeable = $type::find($likeable_id);
+
+        return $likeable->users()->detach($request->user()->id);
+    }
+
 }
 
 

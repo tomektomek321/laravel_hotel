@@ -19,6 +19,10 @@ Route::get(trans('routes.article'),'FrontendController@article')->name('article'
 Route::get(trans('routes.person'),'FrontendController@person')->name('person');
 
 Route::get('/searchCities', 'FrontendController@searchCities');
+Route::get('/ajaxGetRoomReservations/{id}', 'FrontendController@ajaxGetRoomReservations');
+
+Route::get('/like/{likeable_id}/{type}', 'FrontendController@like')->name('like');
+Route::get('/unlike/{likeable_id}/{type}', 'FrontendController@unlike')->name('unlike');
 
 Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function(){
 

@@ -63,4 +63,18 @@ class FrontendController extends Controller
         return response()->json($results);
     }
 
+    public function like($likeable_id, $type, Request $request)
+    {
+        $this->fR->like($likeable_id, $type, $request);
+
+        return redirect()->back();
+    }
+
+    public function unlike($likeable_id, $type, Request $request)
+    {
+        $this->fR->unlike($likeable_id, $type, $request);
+
+        return redirect()->back();
+    }
+
 }
