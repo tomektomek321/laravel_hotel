@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+    public static $roles = [];
+
     use Notifiable;
 
     /**
@@ -45,6 +47,40 @@ class User extends Authenticatable
     public function photos()
     {
         return $this->morphMany('App\Photo', 'photoable');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role');
+    }
+
+    public function hasRole(array $roles)
+    {
+
+        foreach($roles as $role)
+        {
+
+            if(isset(self::$roles[$role]))
+            {
+                if(self::$roles[$role])  return true;
+
+            }
+            else
+            {
+                self::$roles[$role] = $this->roles()->where('name', $role)->exists();
+                if(self::$roles[$role]) return true;
+            }
+
+        }
+
+
+        return false;
+
     }
 
 }
