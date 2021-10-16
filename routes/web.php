@@ -35,7 +35,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function(){
   Route::get(trans('routes.saveroom'),'BackendController@saveRoom')->name('saveRoom');
   Route::get('/cities','BackendController@cities')->name('cities.index');
 
-
+  Route::get('/ajaxGetReservationData', 'BackendController@ajaxGetReservationData');
 });
 
 Auth::routes();

@@ -9,6 +9,7 @@ use App\Enjoythetrip\Gateways\BackendGateway;
 
 class BackendController extends Controller
 {
+    use \App\Enjoythetrip\Traits\Ajax;
 
     public function __construct(BackendGateway $backendGateway, BackendRepositoryInterface $backendRepository)
     {
