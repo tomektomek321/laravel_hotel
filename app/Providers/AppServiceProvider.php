@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,9 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        View::composer('frontend.*', function ($view) {
-            $view->with('placeholder', asset('images/placeholder.jpg'));
-        });
+        //
     }
 
     /**
@@ -26,14 +23,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->bind(\App\Enjoythetrip\Interfaces\FrontendRepositoryInterface::class,function()
-        {
-            return new \App\Enjoythetrip\Repositories\FrontendRepository;
-        });
-
-        $this->app->bind(\App\Enjoythetrip\Interfaces\BackendRepositoryInterface::class,function()
-        {
-            return new \App\Enjoythetrip\Repositories\BackendRepository;
-        });
+        //
     }
 }
